@@ -24,7 +24,7 @@ const App = () => {
 export default () => {
   return (
     //tat ca component dung data thi phai la con cua provider
-    <Provider>
+   <Provider>
       <App />
     </Provider>
   );
