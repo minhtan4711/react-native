@@ -10,6 +10,8 @@ const blogReducer = (state, action) => {
           title: `Blog Post #${state.length + 1}`,
         },
       ]; //luon luon tra ve mot doi tuong moi
+    case "delete_blogpost":
+      return state.filter((blogPost) => blogPost.id !== action.payload);
     default:
       return state;
   }
@@ -17,12 +19,18 @@ const blogReducer = (state, action) => {
 
 const addBlogPost = (dispatch) => {
   return () => {
-    dispatch({ type: "add_blogPost" }); //truyeb vao trong dispatch phai luon la mot object
+    dispatch({ type: "add_blogPost" }); //truyen vao trong dispatch phai luon la mot object
+  };
+};
+
+const deleteBlogPost = (dispatch) => {
+  return (id) => {
+    dispatch({ type: "delete_blogpost", payload: id });
   };
 };
 
 export const { Context, Provider } = createDataContext(
   blogReducer,
-  { addBlogPost },
+  { addBlogPost, deleteBlogPost },
   []
 );
