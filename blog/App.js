@@ -3,6 +3,7 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import IndexScreen from "./src/screens/IndexScreen";
+import ShowScreen from "./src/screens/ShowScreen";
 import { Provider } from "./src/context/BlogContext";
 
 const Stack = createStackNavigator();
@@ -16,6 +17,11 @@ const App = () => {
           component={IndexScreen}
           options={{ title: "Index Screen" }}
         />
+        <Stack.Screen
+          name="ShowScreen"
+          component={ShowScreen}
+          options={{ title: "Show Screen" }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -24,7 +30,7 @@ const App = () => {
 export default () => {
   return (
     //tat ca component dung data thi phai la con cua provider
-   <Provider>
+    <Provider>
       <App />
     </Provider>
   );
