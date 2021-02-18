@@ -15,12 +15,12 @@ const App = () => {
         <Stack.Screen
           name="IndexScreen"
           component={IndexScreen}
-          options={{ title: "Index Screen" }}
+          options={{ title: "Blogs" }}
         />
         <Stack.Screen
           name="ShowScreen"
           component={ShowScreen}
-          options={{ title: "Show Screen" }}
+          options={{ title: "Details" }}
         />
       </Stack.Navigator>
     </NavigationContainer>
