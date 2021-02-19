@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useLayoutEffect } from "react";
 import {
   View,
   Text,
@@ -12,7 +12,18 @@ import { Context } from "../context/BlogContext";
 
 const IndexScreen = ({ navigation }) => {
   const { state, addBlogPost, deleteBlogPost } = useContext(Context);
-  // console.log(navigation);
+
+  React.useLayoutEffect(() => {
+    navigation.setOptions({
+      headerRight: () => (
+        <Button
+          onPress={() => alert("This is a button!")}
+          title="Info"
+          color="black"
+        />
+      ),
+    });
+  }, [navigation]);
 
   return (
     <View>
