@@ -7,19 +7,26 @@ const blogReducer = (state, action) => {
         ...state,
         {
           id: Math.floor(Math.random() * 999999),
-          title: `Blog Post #${state.length + 1}`,
+          title: action.payload.title,
+          content: action.payload.content,
         },
       ]; //luon luon tra ve mot doi tuong moi
     case "delete_blogpost":
       return state.filter((blogPost) => blogPost.id !== action.payload);
+    case "edit_blogPost":
+      return state.map((blogPost) => {
+        return blogPost.id === action.payload.id ? action.payload : blogPost;
+      });
     default:
       return state;
   }
 };
 
 const addBlogPost = (dispatch) => {
-  return () => {
-    dispatch({ type: "add_blogPost" }); //truyen vao trong dispatch phai luon la mot object
+  return (title, content, callback) => {
+    //get title and content from create screen component
+    dispatch({ type: "add_blogPost", payload: { title, content } }); //truyen vao trong dispatch phai luon la mot object
+    callback();
   };
 };
 
@@ -29,8 +36,15 @@ const deleteBlogPost = (dispatch) => {
   };
 };
 
+const editBlogPost = (dispatch) => {
+  return (id, title, content, callback) => {
+    dispatch({ type: "edit_blogPost", payload: { id, title, content } });
+    callback();
+  };
+};
+
 export const { Context, Provider } = createDataContext(
   blogReducer,
-  { addBlogPost, deleteBlogPost },
-  []
+  { addBlogPost, deleteBlogPost, editBlogPost },
+  [{ title: "TEST POST", content: "TEST CONTENT", id: 1 }]
 );
