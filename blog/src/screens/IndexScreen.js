@@ -1,33 +1,29 @@
-import React, { useContext, useLayoutEffect } from "react";
+import React, { useContext } from "react";
 import {
   View,
   Text,
   StyleSheet,
   FlatList,
-  Button,
   TouchableOpacity,
 } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import { Context } from "../context/BlogContext";
 
 const IndexScreen = ({ navigation }) => {
-  const { state, addBlogPost, deleteBlogPost } = useContext(Context);
-
+  const { state, deleteBlogPost } = useContext(Context);
+  //add header right button react navigation v5
   React.useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => (
-        <Button
-          onPress={() => alert("This is a button!")}
-          title="Info"
-          color="black"
-        />
+        <TouchableOpacity onPress={() => navigation.navigate("CreateScreen")}>
+          <Feather name="plus" color="black" size={24} />
+        </TouchableOpacity>
       ),
     });
   }, [navigation]);
 
   return (
     <View>
-      <Button title="Add Post" onPress={addBlogPost} />
       <FlatList
         data={state}
         keyExtractor={(blogPost) => blogPost.title}
@@ -37,6 +33,8 @@ const IndexScreen = ({ navigation }) => {
               onPress={() =>
                 navigation.navigate("ShowScreen", {
                   id: item.id,
+                  title: item.title,
+                  content: item.content,
                 })
               }
             >
