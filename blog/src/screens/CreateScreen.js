@@ -1,11 +1,19 @@
-import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import React, { useContext } from "react";
+import { StyleSheet } from "react-native";
+import BlogPostForm from "../components/BlogPostForm";
+import { Context } from "../context/BlogContext";
 
-const CreateScreen = () => {
+const CreateScreen = ({ navigation }) => {
+  const { addBlogPost } = useContext(Context);
+
   return (
-    <View>
-      <Text>Create Screen</Text>
-    </View>
+    <BlogPostForm
+      onSubmit={(title, content) => {
+        addBlogPost(title, content, () => {
+          navigation.navigate("IndexScreen");
+        });
+      }}
+    />
   );
 };
 
