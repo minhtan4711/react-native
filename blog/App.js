@@ -5,6 +5,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import IndexScreen from "./src/screens/IndexScreen";
 import ShowScreen from "./src/screens/ShowScreen";
 import CreateScreen from "./src/screens/CreateScreen";
+import EditScreen from "./src/screens/EditScreen"
 import { Provider } from "./src/context/BlogContext";
 
 const Stack = createStackNavigator();
@@ -29,6 +30,11 @@ const App = () => {
           name="CreateScreen"
           component={CreateScreen}
           options={{ title: "Create" }}
+        />
+        <Stack.Screen
+          name="EditScreen"
+          component={EditScreen}
+          options={{ title: "Edit" }}
         />
       </Stack.Navigator>
     </NavigationContainer>
