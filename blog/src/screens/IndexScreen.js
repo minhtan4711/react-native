@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import {
   View,
   Text,
@@ -10,7 +10,7 @@ import { Feather } from "@expo/vector-icons";
 import { Context } from "../context/BlogContext";
 
 const IndexScreen = ({ navigation }) => {
-  const { state, deleteBlogPost } = useContext(Context);
+  const { state, deleteBlogPost, getBlogPosts } = useContext(Context);
   //add header right button react navigation v5
   React.useLayoutEffect(() => {
     navigation.setOptions({
@@ -21,6 +21,19 @@ const IndexScreen = ({ navigation }) => {
       ),
     });
   }, [navigation]);
+
+  //first time render
+  useEffect(() => {
+    getBlogPosts()
+    //fetch everytime comeback this screen
+    const listener = navigation.addListener('focus', () => {
+      getBlogPosts()
+    })
+
+    return () => {
+      listener.remove()
+    }
+  }, [])
 
   return (
     <View>
