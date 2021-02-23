@@ -13,5 +13,5 @@ All projects from this course: [React Native](https://www.udemy.com/course/the-c
 
 **(using _json-server_ and _ngrok_ package)**
 
-1. Open another terminal and change path directory to **jsonserver** by `cd jsonserver`
+1. Open another 2 terminals and change path directory to **jsonserver** by `cd jsonserver`
 2. Run `sudo npm run db` and `sudo npm run tunnel`
