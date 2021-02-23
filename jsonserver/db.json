@@ -1,3 +1,39 @@
 {
-  "blogposts": []
+  "blogposts": [
+    {
+      "id": 1,
+      "title": "API POST",
+      "content": "content for my post"
+    },
+    {
+      "title": "Hejehbfd",
+      "content": " Dndndn",
+      "id": 2
+    },
+    {
+      "title": "Neme",
+      "content": "Nemlr",
+      "id": 3
+    },
+    {
+      "title": "Jsmms",
+      "content": "Jel",
+      "id": 4
+    },
+    {
+      "title": "5",
+      "content": "5",
+      "id": 5
+    },
+    {
+      "title": "H",
+      "content": "H",
+      "id": 6
+    },
+    {
+      "title": "Cff",
+      "content": "Fff",
+      "id": 7
+    }
+  ]
 }
