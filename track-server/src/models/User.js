@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-
+//create uses table 
 const userSchema = new mongoose.Schema({
     email: {
         type: String,
