@@ -1,9 +1,11 @@
 //root
 require('./models/User') //define one time
+require('./models/Track')
 const express = require('express')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser') //automatically pass information associated with the body property of incoming request 
 const authRoutes = require('./routes/authRoutes')
+const trackRoutes = require('./routes/trackRoutes')
 const requireAuth = require('../middlewares/requireAuth')
 
 //use express api
@@ -13,6 +15,7 @@ const app = express() //present all the application with some root handlers
 app.use(bodyParser.json())
 //import signin signup procedure: root handler
 app.use(authRoutes)
+app.use(trackRoutes)
 
 
 //connect to mongodb database
