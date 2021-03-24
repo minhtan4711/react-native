@@ -12,6 +12,7 @@ const requireAuth = require('../middlewares/requireAuth')
 const app = express() //present all the application with some root handlers
 
 //root handler: send information signup through express API
+// note for bodyParser is deprecated
 app.use(bodyParser.json())
 //import signin signup procedure: root handler
 app.use(authRoutes)
