@@ -6,7 +6,7 @@ const mongoose = require('mongoose')
 const bodyParser = require('body-parser') //automatically pass information associated with the body property of incoming request 
 const authRoutes = require('./routes/authRoutes')
 const trackRoutes = require('./routes/trackRoutes')
-const requireAuth = require('../middlewares/requireAuth')
+const requireAuth = require('./middlewares/requireAuth')
 
 //use express api
 const app = express() //present all the application with some root handlers
