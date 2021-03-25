@@ -19,7 +19,7 @@ app.use(authRoutes)
 app.use(trackRoutes)
 
 
-//connect to mongodb database
+//connect to mongodb database (can't lose the password out)
 const mongoUri = 'mongodb+srv://minhtan471100:mynewbike85751@track-server.m9ugh.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 mongoose.connect(mongoUri, {
     useNewUrlParser: true,
